@@ -45,6 +45,7 @@ class BellLogger : public bell::AbstractLogger {
     vprintf(format, args);
     va_end(args);
     printf("\n");
+    if (getenv("CSPOT_UNBUFFERED")) fflush(stdout);
   };
 
   void error(std::string filename, int line, std::string submodule,
@@ -65,6 +66,7 @@ class BellLogger : public bell::AbstractLogger {
     vprintf(format, args);
     va_end(args);
     printf("\n");
+    if (getenv("CSPOT_UNBUFFERED")) fflush(stdout);
   };
 
   void info(std::string filename, int line, std::string submodule,
@@ -85,6 +87,7 @@ class BellLogger : public bell::AbstractLogger {
     vprintf(format, args);
     va_end(args);
     printf("\n");
+    if (getenv("CSPOT_UNBUFFERED")) fflush(stdout);
   };
 
   void printTimestamp() {
