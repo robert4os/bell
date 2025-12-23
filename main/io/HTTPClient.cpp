@@ -91,6 +91,7 @@ void HTTPClient::Response::readResponseHeaders() {
                            phResponseHeaders, &numHeaders, prevbuflen);
 
     if (pret > 0) {
+      this->httpStatusCode = status;
       break; /* successfully parsed the request */
     } else if (pret == -1)
       throw std::runtime_error("Cannot parse http response");

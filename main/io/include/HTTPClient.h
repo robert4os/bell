@@ -68,6 +68,7 @@ class HTTPClient {
 
     size_t contentLength();
     size_t totalLength();
+    int statusCode() { return this->httpStatusCode; }
 
    private:
     bell::URLParser urlParser;
@@ -82,6 +83,7 @@ class HTTPClient {
 
     size_t contentSize = 0;
     bool hasContentSize = false;
+    int httpStatusCode = 0;
 
     Headers responseHeaders;
 
